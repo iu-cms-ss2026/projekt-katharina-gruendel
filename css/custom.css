@@ -1,1 +1,64 @@
+/* FEM.ME Sip Society – Custom CSS
+   Erstellt von: Katharina Gründel
+   Kurs: Content Management Systeme
+   IU Internationale Hochschule */
 
+/* ================================
+   1. FARBEN & CI
+   ================================ */
+
+/* Akzentfarbe: #7B3B3B (Bordeaux) */
+/* Hintergrund: #F5F0EB (Creme) */
+/* Text: #3B1F1F (Dunkelbraun) */
+
+/* ================================
+   2. BILDER IN SPALTEN
+   ================================ */
+.wp-block-column .wp-block-image img {
+  width: 100% !important;
+  height: 350px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* ================================
+   3. SEITENTITEL AUSBLENDEN
+   ================================ */
+.home .entry-title {
+  display: none;
+}
+
+.page-template-default .entry-title {
+  display: none;
+}
+
+/* ================================
+   4. HTML BLOCK LAYOUT
+   ================================ */
+.wp-block-html {
+  display: block;
+  width: 100%;
+  clear: both;
+  float: none;
+}
+
+/* ================================
+   5. SPALTEN AUSRICHTUNG
+   ================================ */
+.wp-block-columns {
+  align-items: flex-start !important;
+}
+
+/* ================================
+   6. FORMULAR LABELS
+   ================================ */
+.wpforms-field-label {
+  text-align: left !important;
+}
+
+/* ================================
+   7. CAROUSEL SLIDES
+   ================================ */
+.carousel-slide {
+  height: 350px !important;
+}
