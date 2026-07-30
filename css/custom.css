@@ -62,3 +62,67 @@
 .carousel-slide {
   height: 350px !important;
 }
+/* ================================
+   8. FOTO-MOSAIK OVERLAY
+   ================================ */
+.about-mosaic-overlay,
+.drinks-mosaic-top-overlay,
+.drinks-mosaic-bottom-overlay {
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  pointer-events: none;
+}
+
+/* ================================
+   9. ÖFFNUNGSZEITEN-TABELLE
+   ================================ */
+.oeffnungszeiten {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.oeffnungszeiten tr {
+  border-bottom: 1px solid #D4B8A8;
+}
+
+.oeffnungszeiten td {
+  padding: 16px 0;
+  color: #3B1F1F;
+  font-size: 1.1rem;
+  border: none !important;
+}
+
+.oeffnungszeiten td:last-child {
+  text-align: right;
+  color: #7B3B3B;
+  font-weight: bold;
+}
+
+/* ================================
+   10. EVENT-HOVER FADE
+   ================================ */
+.fade-front {
+  transition: opacity 0.6s ease;
+  z-index: 2;
+}
+
+.fade-card:hover .fade-front {
+  opacity: 0;
+}
+
+/* ================================
+   11. IMAGE TICKER
+   ================================ */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker-scroll 30s linear infinite;
+}
+
+.ticker-wrapper:hover .ticker-track {
+  animation-play-state: paused;
+}
