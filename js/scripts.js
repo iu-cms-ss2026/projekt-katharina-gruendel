@@ -53,3 +53,68 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+/* ==========================================================
+   NEWSLETTER JOURNAL — Lightbox-Funktion
+   Erwartete HTML-Struktur auf der Seite:
+
+   <div class="journal-pages">
+     <div class="journal-page-item" data-full="BILD-URL">
+       <img src="BILD-URL" alt="...">
+     </div>
+     ... (weitere Kacheln)
+   </div>
+
+   <div class="journal-lightbox-overlay" id="journalLightbox">
+     <div class="journal-lightbox-content">
+       <button class="journal-lightbox-close" id="journalLightboxClose">&times;</button>
+       <img src="" alt="" id="journalLightboxImg">
+     </div>
+   </div>
+   ========================================================== */
+
+(function () {
+  const items = document.querySelectorAll('.journal-page-item');
+  const overlay = document.getElementById('journalLightbox');
+  const overlayImg = document.getElementById('journalLightboxImg');
+  const closeBtn = document.getElementById('journalLightboxClose');
+
+  // Öffnet die Lightbox mit dem angeklickten Bild
+  function openLightbox(src, alt) {
+    overlayImg.src = src;
+    overlayImg.alt = alt;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // verhindert Scrollen im Hintergrund
+  }
+
+  // Schließt die Lightbox
+  function closeLightbox() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Klick auf eine Kachel öffnet die Lightbox mit dem passenden Bild
+  items.forEach(function (item) {
+    item.addEventListener('click', function () {
+      const fullSrc = item.getAttribute('data-full');
+      const alt = item.querySelector('img').getAttribute('alt');
+      openLightbox(fullSrc, alt);
+    });
+  });
+
+  // Schließen-Button
+  closeBtn.addEventListener('click', closeLightbox);
+
+  // Klick außerhalb des Bildes schließt die Lightbox
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) {
+      closeLightbox();
+    }
+  });
+
+  // ESC-Taste schließt die Lightbox
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+})();
